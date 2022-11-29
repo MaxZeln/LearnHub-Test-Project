@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Регистрация</title>
+
+    <link th:rel="stylesheet" th:href="@{../styles/form.css}" type="text/css" />
+    <link th:rel="stylesheet" th:href="@{../styles/styles.css}" type="text/css" />
+  </head>
+
+  <body>
+  <form method="post" th:action="@{/auth/registration}" th:object="${view}">
+    <header class="header">
+      <img src="../assets/logo.svg" alt="learnhub logo" class="logo" />
+      <div class="user-container">
+        <a th:href="@{login}" class="login-link">
+          <img src="../assets/login.svg" class="login-logo" />
+        </a>
+      </div>
+    </header>
+    <main class="main">
+      <div class="form-container">
+        <form class="form signup-form">
+          <div class="input-container">
+            <label for="login">
+              <span class="label-text">Логин</span>
+            </label>
+            <input
+                    type="text"
+                    th:field="*{login}"
+                    id="login"
+                    placeholder="введите логин"
+            />
+            <div
+                    class="error"
+                    style="color:red"
+                    th:if="${#fields.hasErrors('login')}"
+                    th:errors="*{login}" > login error
+            </div>
+          </div>
+
+          <div class="input-container">
+            <label for="email">
+              <span class="label-text">E-mail</span>
+            </label>
+            <input
+                    type="email"
+                    th:field="*{email}"
+                    id="email"
+                    placeholder="введите e-mail"
+            />
+            <div
+                    class="error"
+                    style="color:red"
+                    th:if="${#fields.hasErrors('email')}"
+                    th:errors="*{email}" > email error
+            </div>
+          </div>
+
+          <div class="input-container">
+            <label for="phone">
+              <span class="label-text">Телефон</span>
+            </label>
+            <input
+                    type="tel"
+                    th:field="*{phone}"
+                    id="phone"
+                    placeholder="+7 (999) 999-99-99"
+            />
+            <div
+                    class="error"
+                    style="color:red"
+                    th:if="${#fields.hasErrors('phone')}"
+                    th:errors="*{phone}" > phone error
+            </div>
+          </div>
+
+          <div class="input-container">
+            <label for="password">
+              <span class="label-text">Пароль</span>
+            </label>
+            <input
+                    type="password"
+                    th:field="*{password}"
+                    id="password"
+                    placeholder="введите пароль"
+            />
+            <div
+                    class="error"
+                    style="color:red"
+                    th:if="${#fields.hasErrors('password')}"
+                    th:errors="*{password}" > password error
+            </div>
+          </div>
+
+          <div class="input-container">
+            <label for="password2">
+              <span class="label-text">Повторите пароль</span>
+            </label>
+            <input
+                    type="password"
+                    th:field="*{confirmPassword}"
+                    id="password2"
+                    placeholder="введите пароль еще раз"
+            />
+            <div
+                    class="error"
+                    style="color:red"
+                    th:if="${#fields.hasErrors('confirmPassword')}"
+                    th:errors="*{confirmPassword}" > repeated passworderror
+            </div>
+          </div>
+
+          <button class="btn btn-submit" type="submit">
+            Зарегистрироваться
+          </button>
+          <div class="login">
+            <span>Уже зарегистрированы?</span>
+            <a th:href="@{login}" class="login-link"> Войти</a>
+          </div>
+        </form>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <a href="tel:+7 800 551 32 44">+7 800 551 32 44</a>
+      <span>LearnHub © 2022</span>
+      <a href="https://github.com/LHTHC/test-LearnHub">репозиторий</a>
+    </footer>
+
+    <script th:src="@{../js/signup.js}" type="text/javascript" ></script>
+
+  </body>
+</html>
