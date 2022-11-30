@@ -73,6 +73,13 @@ public class AuthController {
     public ModelAndView performRegistration(@ModelAttribute("view") @Valid UserView view
             , BindingResult bindingResult) throws IOException {
 
+        // Изначально в базу данных были вложены два значения
+        // 1. id=1; name=ROLE_ADMIN
+        // 2. id=2; name=ROLE_USER
+        // именно эти значения принимались из бд
+        // и на их основе создовалась персистентная
+        // сущность, поэтому для работы данного метода
+        // нужно заранее ввести эти значения в бд
         RoleDto roleDto = roleService.findById(2);
         view.setRole(roleMapper.mapToView(roleDto));
 
