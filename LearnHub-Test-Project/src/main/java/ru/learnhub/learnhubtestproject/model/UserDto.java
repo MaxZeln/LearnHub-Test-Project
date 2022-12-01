@@ -7,13 +7,6 @@ import lombok.*;
 import ru.learnhub.learnhubtestproject.annotation.PasswordValueMatch;
 import ru.learnhub.learnhubtestproject.annotation.ValidPassword;
 
-@PasswordValueMatch.List({
-        @PasswordValueMatch(
-                field = "password",
-                fieldMatch = "confirmPassword",
-                message = "Passwords do not match!"
-        )
-})
 @Getter
 @Setter
 @AllArgsConstructor
