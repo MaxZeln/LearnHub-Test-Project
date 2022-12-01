@@ -65,8 +65,4 @@ public class UserView {
                 ", role=" + role +
                 '}';
     }
-
-//    @NotEmpty
-//    public void getConfirmPassword(String repeatPassword) {
-//    }
 }
