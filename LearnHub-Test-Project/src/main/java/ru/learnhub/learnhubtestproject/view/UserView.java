@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 import ru.learnhub.learnhubtestproject.annotation.ValidPassword;
+import ru.learnhub.learnhubtestproject.annotation.PasswordValueMatch;
 
 @PasswordValueMatch.List({
         @PasswordValueMatch(
